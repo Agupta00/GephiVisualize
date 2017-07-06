@@ -1,4 +1,3 @@
-# Basic import
 from gephistreamer import graph
 from gephistreamer import streamer
 import re
