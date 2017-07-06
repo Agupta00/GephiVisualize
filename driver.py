@@ -9,7 +9,7 @@ fileType = 'transE'
 stream = streamer.Streamer(streamer.GephiREST())
 
 
-#adds the all_data nodes and edges
+#adds the nodes and edges from the all_data file
 def addFolder(path):
     try:
         abspath=os.path.join(path, 'all_data')
@@ -35,7 +35,7 @@ def addFolder(path):
         print("Unexpected error:", sys.exc_info()[0])
         raise  
 
-#adds the transE (relationship) file
+#adds the nodes and edges from the transE (relationship) file
 def addFolderG(path):
     try:
         abspath=os.path.join(path, 'transE')
@@ -77,7 +77,8 @@ def addFolderG(path):
         raise   
 
 
-#add specific nodes ex: Abraham_lincoln
+#add nodes that conect to a specific node (element_name) and thier related edges ex: element_name='Abraham_lincoln' will add 
+#the Abraham_lincoln node along with any nodes that it is conected to
 def addSpecificNode(path, element_name):
     try:
         abspath=os.path.join(path, 'transE')
@@ -118,7 +119,7 @@ def addSpecificNode(path, element_name):
         print("Unexpected error:", sys.exc_info()[0])
         raise
     
-#adds the nodes/edges for whole tasks file
+#adds the nodes/edges for whole /tasks folder
 def addDirectory(directory):  
     for folder in os.listdir(directory):
         path=os.path.join(directory, folder)
